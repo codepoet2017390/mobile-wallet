@@ -3,11 +3,13 @@ package org.mifos.mobilewallet.mifospay.passcode.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mifos.mobile.passcode.MifosPassCodeActivity;
 import com.mifos.mobile.passcode.utils.EncryptionUtil;
 
 import org.mifos.mobilewallet.mifospay.MifosPayApp;
+import org.mifos.mobilewallet.mifospay.R;
 import org.mifos.mobilewallet.mifospay.auth.ui.LoginActivity;
 import org.mifos.mobilewallet.mifospay.home.ui.HomeActivity;
 import org.mifos.mobilewallet.mifospay.injection.component.ActivityComponent;
@@ -72,7 +74,7 @@ public class PassCodeActivity extends MifosPassCodeActivity implements
 
     @Override
     public void showToaster(View view, int msg) {
-
+        Toast.makeText(getApplicationContext(),getText(msg),Toast.LENGTH_SHORT).show();
     }
 
     @Override
