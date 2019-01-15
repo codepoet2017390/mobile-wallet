@@ -15,6 +15,11 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * View class for settings
+ * @author ankur
+ * @since 9/7/18
+ */
 public class SettingsActivity extends BaseActivity implements SettingsContract.SettingsView {
 
     @Inject
@@ -32,22 +37,26 @@ public class SettingsActivity extends BaseActivity implements SettingsContract.S
         mPresenter.attachView(this);
     }
 
+    //attach presenter to view
     @Override
     public void setPresenter(SettingsContract.SettingsPresenter presenter) {
         mSettingsPresenter = presenter;
     }
 
+    //OnClickListener for logout
     @OnClick(R.id.btn_logout)
     public void onLogoutClicked() {
         showProgressDialog(Constants.LOGGING_OUT);
         mSettingsPresenter.logout();
     }
 
+    //OnClickListener for disable account
     @OnClick(R.id.btn_disable_account)
     public void onDisableAccountClicked() {
         mSettingsPresenter.disableAccount();
     }
 
+    //method is called after user logs out from the Settings Activity
     @Override
     public void startLoginActivity() {
         hideProgressDialog();

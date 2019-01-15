@@ -10,7 +10,9 @@ import org.mifos.mobilewallet.mifospay.settings.SettingsContract;
 import javax.inject.Inject;
 
 /**
- * Created by ankur on 09/July/2018
+ * Presenter class for settings
+ * @author ankur
+ * @since 9/7/18
  */
 
 public class SettingsPresenter implements SettingsContract.SettingsPresenter {
@@ -27,18 +29,21 @@ public class SettingsPresenter implements SettingsContract.SettingsPresenter {
         mLocalRepository = localRepository;
     }
 
+    //attach view to presenter
     @Override
     public void attachView(BaseView baseView) {
         mSettingsView = (SettingsContract.SettingsView) baseView;
         mSettingsView.setPresenter(this);
     }
 
+    //executed when user clicks the logout button
     @Override
     public void logout() {
         mLocalRepository.getPreferencesHelper().clear();
         mSettingsView.startLoginActivity();
     }
 
+    //still under development
     @Override
     public void disableAccount() {
         // keep it disabled for now
