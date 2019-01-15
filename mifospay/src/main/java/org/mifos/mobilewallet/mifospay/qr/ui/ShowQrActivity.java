@@ -19,9 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by naman on 8/7/17.
+ * @author naman
+ * @since 8/7/17
  */
-
 public class ShowQrActivity extends BaseActivity implements QrContract.ShowQrView {
 
     @Inject
@@ -53,16 +53,19 @@ public class ShowQrActivity extends BaseActivity implements QrContract.ShowQrVie
         mShowQrPresenter.generateQr(qrData);
         tvQrData.setText(qrData);
 
+        //raising screen brightness to full
         WindowManager.LayoutParams layout = getWindow().getAttributes();
         layout.screenBrightness = 1F;
         getWindow().setAttributes(layout);
     }
 
+    //set presenter to this view
     @Override
     public void setPresenter(QrContract.ShowQrPresenter presenter) {
         this.mShowQrPresenter = presenter;
     }
 
+    //display the generated QR in the image view
     @Override
     public void showGeneratedQr(Bitmap bitmap) {
         ivQrCode.setImageBitmap(bitmap);

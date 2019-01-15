@@ -9,9 +9,10 @@ import org.mifos.mobilewallet.mifospay.qr.domain.usecase.GenerateQr;
 import javax.inject.Inject;
 
 /**
- * Created by naman on 8/7/17.
+ * ShowQr presenter class
+ * @author naman
+ * @since 8/7/17
  */
-
 public class ShowQrPresenter implements QrContract.ShowQrPresenter {
 
     private final UseCaseHandler mUsecaseHandler;
@@ -24,6 +25,7 @@ public class ShowQrPresenter implements QrContract.ShowQrPresenter {
         this.mUsecaseHandler = useCaseHandler;
     }
 
+    //method to attach view to presenter
     @Override
     public void attachView(BaseView baseView) {
         this.mShowQrView = (QrContract.ShowQrView) baseView;
@@ -31,6 +33,10 @@ public class ShowQrPresenter implements QrContract.ShowQrPresenter {
 
     }
 
+    /**
+     * method used to generate QR code and display it to the user
+     * @param data vpa of the user
+     */
     @Override
     public void generateQr(String data) {
 

@@ -13,7 +13,9 @@ import org.mifos.mobilewallet.mifospay.utils.Constants;
 import javax.inject.Inject;
 
 /**
- * Created by naman on 8/7/17.
+ * GenerateQr class generates QR codes for users when ShowQR is clicked
+ * @author naman
+ * @since 8/7/17
  */
 
 public class GenerateQr extends UseCase<GenerateQr.RequestValues, GenerateQr.ResponseValue> {
@@ -26,6 +28,11 @@ public class GenerateQr extends UseCase<GenerateQr.RequestValues, GenerateQr.Res
     public GenerateQr() {
     }
 
+    /**
+     * method generates QR as a bitmap
+     * called when {@link org.mifos.mobilewallet.core.base.UseCaseScheduler} executes run()
+     * @param requestValues (an instance of GenerateQr.RequestValues class)
+     */
     @Override
     protected void executeUseCase(RequestValues requestValues) {
 
@@ -43,6 +50,8 @@ public class GenerateQr extends UseCase<GenerateQr.RequestValues, GenerateQr.Res
         }
     }
 
+    //Encodes a bitmap from the given data and returns
+    //it to executeUseCase method
     private Bitmap encodeAsBitmap(String str) throws WriterException {
         BitMatrix result;
         try {
@@ -65,6 +74,7 @@ public class GenerateQr extends UseCase<GenerateQr.RequestValues, GenerateQr.Res
         return bitmap;
     }
 
+    //Data passed to a request
     public static final class RequestValues implements UseCase.RequestValues {
 
         private final String data;
@@ -73,7 +83,7 @@ public class GenerateQr extends UseCase<GenerateQr.RequestValues, GenerateQr.Res
             this.data = data;
         }
     }
-
+    //Data received from requests
     public static final class ResponseValue implements UseCase.ResponseValue {
 
 
