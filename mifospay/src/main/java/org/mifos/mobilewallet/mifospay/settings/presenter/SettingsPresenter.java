@@ -29,21 +29,27 @@ public class SettingsPresenter implements SettingsContract.SettingsPresenter {
         mLocalRepository = localRepository;
     }
 
-    //attach view to presenter
+    /**
+     *attach view to presenter
+     */
     @Override
     public void attachView(BaseView baseView) {
         mSettingsView = (SettingsContract.SettingsView) baseView;
         mSettingsView.setPresenter(this);
     }
 
-    //executed when user clicks the logout button
+    /**
+     * executed when user clicks the logout button
+     */
     @Override
     public void logout() {
         mLocalRepository.getPreferencesHelper().clear();
         mSettingsView.startLoginActivity();
     }
 
-    //still under development
+    /**
+     * still under development
+     */
     @Override
     public void disableAccount() {
         // keep it disabled for now
