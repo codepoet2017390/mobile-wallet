@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -140,6 +141,10 @@ public class ProfileFragment extends BaseFragment implements BaseHomeContract.Pr
 
     @Override
     public void showProfile(Client client) {
+        Log.d("helaaa","client name"+client.getName());
+        client.setName("codepeot");
+        client.setClientId(12345);
+        client.setDisplayName("codepoet");
         TextDrawable drawable = TextDrawable.builder().beginConfig()
                 .width((int)getResources().getDimension(R.dimen.user_profile_image_size))
                 .height((int)getResources().getDimension(R.dimen.user_profile_image_size))

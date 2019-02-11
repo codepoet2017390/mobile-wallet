@@ -28,7 +28,8 @@ public class Client implements Parcelable {
     private String mobileNo;
 
     protected Client(Parcel in) {
-        this.name = in.readString();
+       // this.name = in.readString();
+        this.name="codepoet";
         this.image = in.readString();
         this.externalId = in.readString();
         this.clientId = in.readLong();
@@ -37,6 +38,7 @@ public class Client implements Parcelable {
     }
 
     public Client() {
+        this.name="codepoet";
     }
 
     public String getImage() {

@@ -211,6 +211,7 @@ public class EditProfileActivity extends BaseActivity implements
 
     @Override
     public void showDefaultImageByUsername(String fullName) {
+        fullName="codepoet";
         TextDrawable drawable = TextDrawable.builder().beginConfig()
                 .width((int)getResources().getDimension(R.dimen.user_profile_image_size))
                 .height((int)getResources().getDimension(R.dimen.user_profile_image_size))
