@@ -123,8 +123,7 @@ public class EditProfileActivity extends BaseActivity implements
         mEditProfilePresenter.fetchUserDetails();
 
         if (isChangeImageRequestFromProfile()) {
-            bottomSheetDialog.show();
-        }
+            bottomSheetDialog.show(); }
     }
 
     private void setupUi() {
@@ -201,11 +200,7 @@ public class EditProfileActivity extends BaseActivity implements
             R.id.et_edit_profile_vpa, R.id.et_edit_profile_mobile })
     public void onUserDetailsFocusChanged(EditText input, boolean isFocused) {
         if  (!isDataSaveNecessary((input))) {
-            if (isFocused) {
-                input.setText(input.getHint().toString());
-            } else {
-                input.getText().clear();
-            }
+            input.getText().clear();
         }
     }
 
